@@ -1,0 +1,8 @@
+# IDE and Python-generated files
+.idea/
+__pycache__/
+*.py[cod]
+
+# MNIST source archives are redundant when mnist.pkl is present.
+dataset/*.gz
+dataset/MNIST/
