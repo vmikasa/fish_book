@@ -22,6 +22,11 @@ def sigmoid(x):
     return 1/(1+np.exp(-x))
 
 def softmax(x):
+    """
+    这个函数有缺陷。只能计算一维数组，假如传入的是batch，即二维数组，那就算不了了
+    :param x: 传入x一定是一个一维数组
+    :return: return是一维数组的概率分布
+    """
     c=np.max(x)
     x_exp=np.exp(x-c)
     x_exp_sum=np.sum(x_exp)

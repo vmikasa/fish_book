@@ -17,5 +17,5 @@ print(B)
 print(np.ndim(B))
 print(np.shape(B))
 
-C=np.dot(A,B)
+C=np.dot(A,B)   # 也可以写成A@B，事实上，更建议写成A@B
 print(C)

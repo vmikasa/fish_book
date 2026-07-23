@@ -96,6 +96,7 @@ def load_mnist(normalize=True, flatten=True, one_hot_label=False):
     one_hot_label : 
         one_hot_label为True的情况下，标签作为one-hot数组返回
         one-hot数组是指[0,0,1,0,0,0,0,0,0,0]这样的数组
+        当one_hot_label为false的时候，返回就是只有一个正确答案
     flatten : 是否将图像展开为一维数组
     
     Returns

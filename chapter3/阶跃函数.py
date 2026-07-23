@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def step_function(x):
+    # 关于np.astype(int)，这个方法可以把bool类型转换为0或1
     y = x > 0
     return y.astype(int)
 

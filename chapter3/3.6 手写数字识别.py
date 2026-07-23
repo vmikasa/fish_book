@@ -1,10 +1,10 @@
 """
 终于来到手写数字识别的这个案例了
 一般地，对于分类问题来说，输出层的神经元数量就等于要分类的类别
-这里是0-9这10个数字，所以输出层需要有10个数字
+这里是0-9这10个数字，所以输出层需要有10个数字，也就是输出层有10个神经元
 这里，我们假设学习（或者说训练）已经结束，直接用学习到的参数，来实现神经网络的推理，也就是前向传播，最后输出预测的结果
 
-关于输入层，因为输入的像素是28*28=784，所以输入层可以有784个神经元，每一个像素点对应一个神经元。也就是说，第一层的权重W1，应该有784个
+关于输入层，因为输入的像素是28*28=784，所以输入层应该有784个神经元，每一个像素点对应一个神经元。也就是说，第一层的权重W1，应该有784个
 书中说隐藏层1有50个神经元，也就是说，有50个神经元，每个神经元都会接受输入层的784个像素点，所以都有784个权重和偏置，表示为W1和B1
 书中说隐藏层2有100个神经元，也就是说，有100个神经元，每个神经元都会接受上一层50个神经元的输出，所以说有50个权重和偏置，表示为W2和B2
 书中说输出层有10个，也就是说，有10个神经元，每个神经元都会接受上一层100个神经元的输出，所以说每个神经元理论上有100个权重和偏置，表示为W3和B3
@@ -29,7 +29,6 @@ import numpy as np
 import sys,os
 sys.path.append(os.pardir)
 from dataset.mnist import load_mnist
-from PIL import Image
 import pickle
 
 
@@ -39,7 +38,7 @@ def get_data():
     序列化就是按照固定的规则，将文件对象转换为二进制
     这里的pkl存的就是模型文件，或者说权重偏置，里面包含了网络层数、网络结构、每层权重偏置和激活函数等参数
     """
-    (test_image,test_label),(test_image,test_label)=load_mnist(normalize=True,flatten=True,one_hot_label=False)
+    (train_image,train_label),(test_image,test_label)=load_mnist(normalize=True,flatten=True,one_hot_label=False)
     # load_mnist的返回值是(训练图像, 训练标签), (测试图像, 测试标签),是numpy的数组
     return test_image,test_label
 
@@ -51,6 +50,7 @@ def init_network():
 
     return network
     # 这里的network应该是一个字典，因为后文的写法是network['']=xxx
+
 def sigmoid(x):
     return 1/(1+np.exp(-x))
 

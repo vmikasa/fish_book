@@ -8,7 +8,7 @@ from PIL import Image
 (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
 
 def img_show(img):
-    pil_img=Image.fromarray(np.uint8(img))
+    pil_img=Image.fromarray(np.uint8(img))      # np.uint8()，将图片转换为uint8类型，因为PIL只认uint8
     pil_img.show()
 
 (train_image,train_labels),(test_image,test_labels)=load_mnist(flatten=True, normalize=False)
