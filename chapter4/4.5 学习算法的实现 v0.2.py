@@ -70,6 +70,7 @@ def numerical_gradient(f,x):
         x=x.reshape(1,x.size)
     """
     # 定义微小扰动h，并且创建grad梯度矩阵，形状与x相同。并且确保x是float
+    # 因为整数数组不保存小数，微小扰动h无效，所以要确保x是float
     h=1e-4
     x=np.asarray(x,dtype=np.float64)
     grad=np.zeros_like(x)
